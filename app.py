@@ -65,7 +65,7 @@ if uploaded_file is not None:
         output_df = pd.DataFrame({
             "Student": df["Name"] if "Name" in df.columns else [f"Student {i+1}" for i in range(len(preds))],
             "Prediction": preds,
-            "Confidence": probs
+            "Confidence": [f"{p*100:.2f}%" for p in probs]
         })
 
         st.subheader("📊 Prediction Results")
